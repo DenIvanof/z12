@@ -91,6 +91,26 @@ public class MovieManagerTest {
         Assertions.assertArrayEquals(expected,actual);
 
     }
+    @Test
+    public void bigLimit(){
+        MovieManager manager = new MovieManager(8);
+        manager.add("Бладшот");
+        manager.add("Вперед");
+        manager.add("Отель 'Белград'");
+        manager.add("Джентльмены");
+        manager.add("Человек-нивидимка");
+        manager.add("Тролли.Мировой тур");
+        manager.add("Номер один");
 
+        String[] expected = {"Номер один","Тролли.Мировой тур","Человек-нивидимка","Джентльмены","Отель 'Белград'","Вперед","Бладшот"};
+        String[] actual = manager.findLast();
+        System.out.println("Тест №5 - лимит больше списка фильмов");
+        System.out.println("Ожидаемый результат");
+        System.out.println(Arrays.toString(expected));
+        System.out.println("Фактический результат");
+        System.out.println(Arrays.toString(actual));
+        Assertions.assertArrayEquals(expected,actual);
+
+    }
 
 }
